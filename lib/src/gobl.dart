@@ -16,15 +16,17 @@ class Gobl {
     return _gobl;
   }
 
-  dynamic parse(String json,
+  /// Parse a json string.
+  static dynamic parse(String json,
       {Object Function(Object key, Object value) reviver}) {
+    var gobl = Gobl();
     return jsonDecode(json, reviver: (key, value) {
       if (reviver is Function) {
         value = reviver(key, value);
       }
 
       if (value is Map) {
-        var i = toInstance(value, cache: true);
+        var i = gobl.toInstance(value, cache: true);
         if (i == null) {
           return i;
         }
