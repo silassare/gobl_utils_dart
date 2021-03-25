@@ -67,7 +67,7 @@ void main() {
 
   var json = '{"error": 0, user: {"user_id": "1", "user_name": "John Doe"}}';
 
-  var data = gobl.parse(json);
+  var data = Gobl.parse(json);
 
   print(data.user.name);
 }
